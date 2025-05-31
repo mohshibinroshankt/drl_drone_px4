@@ -1,0 +1,55 @@
+# Camera bridge configuration.
+- topic_name: "/camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  lazy: true
+  direction: GZ_TO_ROS
+
+- topic_name: "/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  lazy: true
+  direction: GZ_TO_ROS
+
+- topic_name: "/depth_camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  lazy: true
+  direction: GZ_TO_ROS
+
+- topic_name: "/depth_camera/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  lazy: true
+  direction: GZ_TO_ROS
+
+- topic_name: "/world/iris_maze/model/x500_lidar_2d_0/link/link/sensor/lidar_2d_v2/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  lazy: true
+  direction: GZ_TO_ROS
+  
+- topic_name: "/world/iris_maze_nowall/model/x500_lidar_2d_0/link/link/sensor/lidar_2d_v2/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  lazy: true
+  direction: GZ_TO_ROS
+
+- topic_name: "/world/walls/model/x500_lidar_2d_0/link/link/sensor/lidar_2d_v2/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  lazy: true
+  direction: GZ_TO_ROS
+  
+- topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  lazy: true
+  direction: GZ_TO_ROS
+
+
+
+#ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=/home/icfoss22/ws_sensor_combined/src/drl_px4/config/bridge.yaml
+# ros2 run rqt_image_view rqt_image_view
+# tensorboard --logdir=./tb_logs/
+
