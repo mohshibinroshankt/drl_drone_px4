@@ -124,44 +124,7 @@ setup(
 )
 ```
 
-### Create a Sample Script
 
-Create placeholder scripts in the `drl_px4` directory to ensure the package builds:
-
-```bash
-touch drl_px4/train_maze.py drl_px4/train_uav.py drl_px4/train_sac.py drl_px4/test_sac.py drl_px4/test_maze.py
-```
-
-Add a minimal implementation to `drl_px4/train_maze.py` (you can expand this later):
-
-```python
-#!/usr/bin/env python3
-import rclpy
-from rclpy.node import Node
-
-class TrainMazeNode(Node):
-    def __init__(self):
-        super().__init__('train_maze')
-        self.get_logger().info('Train Maze Node Started')
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = TrainMazeNode()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
-```
-
-Make the script executable:
-
-```bash
-chmod +x drl_px4/*.py
-```
-
----
 
 ## 🔧 Installation & Build
 
