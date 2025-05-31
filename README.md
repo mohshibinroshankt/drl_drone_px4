@@ -1,41 +1,48 @@
-🧠 drl_drone_px4
-An advanced ROS 2 package for autonomous drone navigation using Soft Actor-Critic (SAC) with Prioritized Experience Replay (PER). It integrates PX4, Gazebo Harmonic, and ROS 2 Humble, enabling obstacle avoidance and learning-based navigation in simulation, with support for real hardware via Micro XRCE-DDS. Monitor and control the drone using QGroundControl.
+📜 README for drl_drone_px4 (Code Display)
+This README showcases the content of the drl_drone_px4 project's README as a code block for reference or documentation purposes.
+📝 README Content as Code
+Below is the full README content for the drl_drone_px4 project, displayed as a code block:
+# 🧠 drl_drone_px4
 
-📁 Repository Structure
-drl_drone_px4/
-├── drl_px4/            # Core RL training and UAV environment code
-├── config/             # ROS-Gazebo-PX4 bridge config
-├── test/               # PEP8 / PEP257 / linting tests
-├── resource/           # Package resources
-├── setup.py            # Python package setup
-├── package.xml         # ROS 2 package manifest
-└── README.md           # Project documentation
+An advanced ROS 2 package for autonomous drone navigation using **Soft Actor-Critic (SAC)** with **Prioritized Experience Replay (PER)**. It integrates **PX4**, **Gazebo Harmonic**, and **ROS 2 Humble**, enabling obstacle avoidance and learning-based navigation in simulation, with support for real hardware via **Micro XRCE-DDS**. Monitor and control the drone using **QGroundControl**.
 
+---
 
-🚀 Features
+## 📁 Repository Structure
 
-🧠 SAC + Prioritized Experience Replay for efficient learning  
-🛩️ PX4-Gazebo-ROS 2 integration  
-🪄 Modular training and testing scripts  
-🔄 Micro XRCE-DDS communication with Pixhawk  
-🖥️ QGroundControl support for telemetry visualization
+drl_drone_px4/├── drl_px4/            # Core RL training and UAV environment code├── config/             # ROS-Gazebo-PX4 bridge config├── test/               # PEP8 / PEP257 / linting tests├── resource/           # Package resources├── setup.py            # Python package setup├── package.xml         # ROS 2 package manifest└── README.md           # Project documentation
 
+---
 
-🧰 Requirements
+## 🚀 Features
 
-Operating System: Ubuntu 22.04  
-ROS 2: Humble  
-PX4 Autopilot: v1.15.4 (recommended for stability)  
-Gazebo: Harmonic  
-Micro XRCE-DDS Agent: v2.4.2  
-QGroundControl: Latest version  
-Python: 3.10  
-Dependencies: px4_ros_com, px4_msgs, ros_gzharmonic, etc.
+- 🧠 SAC + Prioritized Experience Replay for efficient learning  
+- 🛩️ PX4-Gazebo-ROS 2 integration  
+- 🪄 Modular training and testing scripts  
+- 🔄 Micro XRCE-DDS communication with Pixhawk  
+- 🖥️ QGroundControl support for telemetry visualization  
 
+---
 
-📦 Creating the Repository and Package
-1. Create the Repository
-Create a new repository on GitHub (or your preferred platform) named drl_drone_px4. Clone it to your local machine:
+## 🧰 Requirements
+
+- **Operating System**: Ubuntu 22.04  
+- **ROS 2**: Humble  
+- **PX4 Autopilot**: v1.15.4 (recommended for stability)  
+- **Gazebo**: Harmonic  
+- **Micro XRCE-DDS Agent**: v2.4.2  
+- **QGroundControl**: Latest version  
+- **Python**: 3.10  
+- **Dependencies**: `px4_ros_com`, `px4_msgs`, `ros_gzharmonic`, etc.  
+
+---
+
+## 📦 Creating the Repository and Package
+
+### 1. Create the Repository
+Create a new repository on GitHub (or your preferred platform) named `drl_drone_px4`. Clone it to your local machine:
+
+```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone https://github.com/mohshibinroshankt/drl_drone_px4.git
@@ -131,6 +138,7 @@ chmod +x drl_px4/*.py
 Ensure Ubuntu 22.04 is installed, then set up ROS 2 Humble, Gazebo Harmonic, PX4, and Micro XRCE-DDS.
 Install ROS 2 Humble
 Follow the official ROS 2 Humble installation guide for Ubuntu 22.04:
+```
 sudo apt update && sudo apt install -y curl gnupg2 lsb-release
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros2-latest.list'
@@ -143,18 +151,21 @@ Install Gazebo Harmonic and ROS-Gazebo Bridge
 Install Gazebo Harmonic and the ROS-Gazebo bridge for ROS 2 Humble:
 sudo apt update
 sudo apt install -y ros-humble-ros-gzharmonic
-
+```
 Install PX4
 Clone and set up PX4 Autopilot (v1.15.4 recommended):
+```
 cd ~
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 cd PX4-Autopilot
 git checkout v1.15.4
 git submodule update --init --recursive
 bash ./Tools/setup/ubuntu.sh
+```
 
 Install Micro XRCE-DDS Agent
 Install the Micro XRCE-DDS Agent for communication between PX4 and ROS 2:
+```
 cd ~
 git clone -b v2.4.2 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
 cd Micro-XRCE-DDS-Agent
@@ -164,32 +175,38 @@ cmake ..
 make
 sudo make install
 sudo ldconfig /usr/local/lib/
+```
 
 Install QGroundControl
 Download and install QGroundControl for telemetry and monitoring:
+```
 cd ~
 wget https://d176tv9ibo4f19.cloudfront.net/release/QGroundControl.AppImage
 chmod +x QGroundControl.AppImage
+```
 
 2. Clone PX4 ROS 2 Packages
 Clone necessary PX4 ROS 2 packages into your workspace:
+```
 cd ~/ros2_ws/src
 git clone https://github.com/PX4/px4_msgs.git --recursive
 git clone https://github.com/PX4/px4_ros_com.git --recursive
-
+```
 3. Install Dependencies
 Install ROS 2 dependencies for your workspace:
+```
 cd ~/ros2_ws
 sudo apt update
 rosdep install --from-paths src --ignore-src -y
-
+```
 4. Build the Workspace
 Build and source the ROS 2 workspace:
+```
 cd ~/ros2_ws
 colcon build --symlink-install
 source install/setup.bash
 echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
-
+```
 
 📡 Set Up Micro XRCE-DDS Communication
 Micro XRCE-DDS bridges PX4 and ROS 2, enabling communication between the Pixhawk (or SITL) and a companion computer (e.g., Raspberry Pi).
@@ -280,4 +297,6 @@ Assess the drone’s obstacle avoidance and path learning in simulation or on ha
 Ensure your system has sufficient resources (at least 8GB RAM) for Gazebo Harmonic and PX4 SITL.
 For hardware deployment, verify Pixhawk firmware compatibility with PX4 v1.15.4 and Micro XRCE-DDS.
 Expand the training scripts (train_maze.py, etc.) with your SAC + PER implementation, integrating PX4 sensor data and control commands.
+
+
 
