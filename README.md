@@ -292,7 +292,7 @@ ros2 run drl_px4 test_maze
 ```
 
 ---
-
+![image](https://github.com/mohshibinroshankt/drl_drone_px4/blob/da076ef4a9e195bba871291dcfb8c9a04bcd7d47/DRL%20Media/DRL%20Training.webm)
 ## 📺 QGroundControl Setup
 
 QGroundControl is used to monitor the drone's telemetry, position, and sensor data.
