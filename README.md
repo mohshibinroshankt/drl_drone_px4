@@ -290,6 +290,7 @@ ros2 run drl_px4 train_sac
 ros2 run drl_px4 test_sac
 ros2 run drl_px4 test_maze
 ```
+![DRL Training](https://raw.githubusercontent.com/mohshibinroshankt/drl_drone_px4/b8b112f761417c754ffee1829a899b897d788a2a/DRL%20Media/DRL%20Training.gif)
 
 ---
 ## 📺 QGroundControl Setup
